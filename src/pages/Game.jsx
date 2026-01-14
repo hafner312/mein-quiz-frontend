@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-import { getQuizQuestions } from "../utils/java-api";
-import { getDemoQuizQuestions } from "../utils/demo-api";
+import { getQuizQuestions } from "../services/question-service";
 
 import Button from "../components/button";
 import GameSession from "../components/game-session";
@@ -21,7 +20,6 @@ const Game = () => {
 
     // Fragen von der Java API laden
     try {
-      await getDemoQuizQuestions();
       const questions = await getQuizQuestions(5, category);
       console.log("Java API Questions:", questions);
       setApiQuestions(questions);

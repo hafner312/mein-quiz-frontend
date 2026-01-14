@@ -8,16 +8,20 @@ import Impressum from "./pages/Impressum";
 import Rules from "./pages/Rules";
 import PageNotFound from "./pages/PageNotFound";
 import Layout from "./components/layout";
+import Login from "./pages/Login";
+import AxiosDemo from "./pages/AxiosDemo";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/quiz" element={<Game />} />
         <Route path="/admin" element={<QuestionManager />} />
         <Route path="/regeln" element={<Rules />} />
         <Route path="/blabli" element={<Impressum />} />
+        <Route path="/axios-demo" element={<AxiosDemo />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>
