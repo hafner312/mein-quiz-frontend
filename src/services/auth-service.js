@@ -9,11 +9,12 @@ export const login = async (usernameOrEmail, password) => {
       password,
     });
 
-    const { token, userId, username, email, role } = response.data;
+    const { token, userId, id, username, email, role } = response.data;
+    const resolvedUserId = userId ?? id;
 
     localStorage.setItem("authToken", token);
 
-    const userData = { id: userId, username, email, role };
+    const userData = { id: resolvedUserId, username, email, role };
     localStorage.setItem("userData", JSON.stringify(userData));
 
     console.log("Login erfolgreich - Token gespeichert");
@@ -30,6 +31,7 @@ export const login = async (usernameOrEmail, password) => {
 export const logout = () => {
   console.log("Logout - Token wird geloescht");
   localStorage.removeItem("authToken");
+  localStorage.removeItem("userData");
 };
 
 export const isAuthenticated = () => {
@@ -39,6 +41,14 @@ export const isAuthenticated = () => {
 
 export const getToken = () => {
   return localStorage.getItem("authToken");
+};
+
+export const getUserData = () => {
+  const userDataString = localStorage.getItem("userData");
+  if (userDataString) {
+    return JSON.parse(userDataString);
+  }
+  return null;
 };
 
 export const register = async (userData) => {

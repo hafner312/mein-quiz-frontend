@@ -157,6 +157,7 @@ button:focus-visible {
   transition: all 0.3s ease;
   font-family: inherit;
   background: white;
+  color: #333;
 }
 
 .form-input:focus {
@@ -258,9 +259,4 @@ button:focus-visible {
 
 .required {
   color: #dc3545;
-}
-
-.axios-demo {
-  max-width: 900px;
-  margin: 0 auto;
 }

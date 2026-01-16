@@ -1,22 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginForm from "../components/login-form";
-import { login } from "../services/auth-service";
+import { useAuth } from "../contexts/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const { login } = useAuth();
 
   const handleLogin = async (loginData) => {
     setError("");
 
     try {
       console.log("Login wird gestartet...");
-      const response = await login(
-        loginData.usernameOrEmail,
-        loginData.password
-      );
-      console.log("Login erfolgreich:", response);
+      await login(loginData.usernameOrEmail, loginData.password);
+      console.log("Login erfolgreich");
       navigate("/quiz");
     } catch (err) {
       console.error("Login fehlgeschlagen:", err);
@@ -75,11 +73,11 @@ const Login = () => {
           <br />
           <strong>Normaler User:</strong>
           <br />
-          Username: user
+          Username: player1
           <br />
-          Email: user@quiz.com
+          Email: player1@quiz.com
           <br />
-          Passwort: user123
+          Passwort: player123
         </div>
       </div>
     </div>
