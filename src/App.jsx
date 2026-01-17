@@ -9,6 +9,7 @@ import Rules from "./pages/Rules";
 import PageNotFound from "./pages/PageNotFound";
 import Layout from "./components/layout";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Forbidden from "./pages/Forbidden";
 import ProtectedRoute from "./components/protected-route";
 import LeaderboardPage from "./pages/Leaderboard";
@@ -23,6 +24,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
         <Route path="regeln" element={<Rules />} />
         <Route path="blabli" element={<Impressum />} />
         <Route path="datenschutz" element={<Datenschutz />} />

@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginForm from "../components/login-form";
 import { useAuth } from "../contexts/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [error, setError] = useState("");
   const { login } = useAuth();
+  const registrationSuccess = location.state?.registered;
 
   const handleLogin = async (loginData) => {
     setError("");
@@ -27,6 +29,21 @@ const Login = () => {
   return (
     <div className="auth-page">
       <div className="auth-container">
+        {registrationSuccess && (
+          <div
+            style={{
+              color: "#155724",
+              padding: "10px",
+              backgroundColor: "#d4edda",
+              borderRadius: "4px",
+              marginBottom: "15px",
+              textAlign: "center",
+            }}
+          >
+            Registrierung erfolgreich. Bitte jetzt einloggen.
+          </div>
+        )}
+
         {error && (
           <div
             className="error-message"
@@ -47,7 +64,7 @@ const Login = () => {
 
         <div className="auth-links">
           <p>Noch kein Account?</p>
-          <p>Registrierung kommt später!</p>
+          <Link to="/register">Jetzt registrieren</Link>
         </div>
 
         <div
