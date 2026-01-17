@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { finishGame } from "../services/game-service";
 import Button from "./button";
 
-const GameSession = ({ questions, onResetGame }) => {
+const GameSession = ({ questions, onResetGame, gameSessionId }) => {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [score, setScore] = useState(0);
@@ -39,6 +40,22 @@ const GameSession = ({ questions, onResetGame }) => {
     setQuestionIndex(questionIndex + 1);
     setFeedback(null);
     setIsAnswered(false);
+  };
+
+  const handleGameEnd = async () => {
+    setShowScore(true);
+    setFeedback(null);
+
+    if (!gameSessionId) {
+      console.warn("No game session ID available, score not saved.");
+      return;
+    }
+
+    try {
+      await finishGame(gameSessionId, score);
+    } catch (error) {
+      console.error("Error saving game result:", error);
+    }
   };
 
   // Define what happens when the game is reset
@@ -89,13 +106,7 @@ const GameSession = ({ questions, onResetGame }) => {
             disabled={feedback === null} // Disable button until an answer is selected
           />
         ) : (
-          <Button
-            text="Spiel beenden"
-            onAnswerClick={() => {
-              setShowScore(true);
-              setFeedback(null);
-            }}
-          />
+          <Button text="Spiel beenden" onAnswerClick={handleGameEnd} />
         ))}
 
       {/** Show the score only if the game is finished and the showScore state is true */}

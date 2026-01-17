@@ -1,4 +1,4 @@
-import "./App.css";
+yimport "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -11,6 +11,8 @@ import Layout from "./components/layout";
 import Login from "./pages/Login";
 import Forbidden from "./pages/Forbidden";
 import ProtectedRoute from "./components/protected-route";
+import LeaderboardPage from "./pages/Leaderboard";
+import UserStatsPage from "./pages/UserStatsPage";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="regeln" element={<Rules />} />
         <Route path="blabli" element={<Impressum />} />
+        <Route path="leaderboard" element={<LeaderboardPage />} />
+        <Route path="stats" element={<UserStatsPage />} />
         <Route path="forbidden" element={<Forbidden />} />
 
         <Route

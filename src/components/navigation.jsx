@@ -12,12 +12,14 @@ const Navigation = () => {
     <nav className="layout-header-nav">
       <Link to="/">Home</Link>
       <Link to="/quiz">Quiz</Link>
+      <Link to="/leaderboard">Leaderboard</Link>
       <Link to="/admin">Fragen verwalten</Link>
       <Link to="/regeln">Regeln</Link>
       <Link to="/blabli">Impressum</Link>
 
       {isAuthenticated ? (
         <>
+          <Link to="/stats">Meine Stats</Link>
           <span
             style={{
               marginLeft: "20px",
