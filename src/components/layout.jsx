@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Navigation from "./navigation";
 
 const Layout = () => {
@@ -16,8 +16,18 @@ const Layout = () => {
         <Outlet />
       </main>
       <footer className="layout-footer">
-        <p>© {currentYear} WISS-Quiz. All rights reserved.</p>
-        <p>Made with ❤️ by WISS</p>
+        <div className="layout-footer-content">
+          <div className="layout-footer-brand">
+            <p>© {currentYear} WISS-Quiz. All rights reserved.</p>
+            <p>Made with ❤️ by WISS</p>
+          </div>
+          <div className="layout-footer-links">
+            <Link to="/blabli">Impressum</Link>
+            <Link to="/datenschutz">Datenschutz</Link>
+            <Link to="/agb">AGB</Link>
+            <Link to="/kontakt">Kontakt</Link>
+          </div>
+        </div>
       </footer>
     </div>
   );

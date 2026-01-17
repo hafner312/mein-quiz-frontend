@@ -13,10 +13,10 @@ const Forbidden = () => {
       <h1 style={{ fontSize: "72px", margin: "0" }}>403</h1>
       <h2>Zugriff verweigert</h2>
       <p style={{ fontSize: "18px", color: "#666" }}>
-        Du hast keine Berechtigung fuer diese Seite.
+        Du hast keine Berechtigung für diese Seite.
       </p>
       <p style={{ fontSize: "16px", color: "#888", marginTop: "20px" }}>
-        Diese Seite ist nur fuer Administratoren zugaenglich.
+        Diese Seite ist nur für Administratoren zugänglich.
       </p>
       <Link
         to="/"
@@ -30,7 +30,7 @@ const Forbidden = () => {
           borderRadius: "4px",
         }}
       >
-        Zurueck zur Startseite
+        Zurück zur Startseite
       </Link>
     </div>
   );

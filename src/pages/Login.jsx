@@ -19,7 +19,7 @@ const Login = () => {
     } catch (err) {
       console.error("Login fehlgeschlagen:", err);
       setError(
-        err.message || "Login fehlgeschlagen. Bitte pruefe deine Eingaben."
+        err.message || "Login fehlgeschlagen. Bitte prüfe deine Eingaben."
       );
     }
   };
@@ -47,7 +47,7 @@ const Login = () => {
 
         <div className="auth-links">
           <p>Noch kein Account?</p>
-          <p>Registrierung kommt spaeter!</p>
+          <p>Registrierung kommt später!</p>
         </div>
 
         <div

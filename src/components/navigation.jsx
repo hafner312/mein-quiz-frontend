@@ -15,7 +15,6 @@ const Navigation = () => {
       <Link to="/leaderboard">Leaderboard</Link>
       <Link to="/admin">Fragen verwalten</Link>
       <Link to="/regeln">Regeln</Link>
-      <Link to="/blabli">Impressum</Link>
 
       {isAuthenticated ? (
         <>

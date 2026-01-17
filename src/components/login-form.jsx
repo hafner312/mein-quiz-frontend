@@ -125,7 +125,7 @@ const LoginForm = ({ onLogin }) => {
 
       <div className="form-submit">
         <Button
-          text={isLoading ? "Laedt..." : "Einloggen"}
+          text={isLoading ? "Lädt..." : "Einloggen"}
           onAnswerClick={handleSubmit}
           disabled={isLoading}
           className="submit-button"

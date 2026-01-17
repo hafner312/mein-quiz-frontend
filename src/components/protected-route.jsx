@@ -14,7 +14,7 @@ const ProtectedRoute = ({ children, requiredRole }) => {
           minHeight: "60vh",
         }}
       >
-        <h2>Laedt...</h2>
+        <h2>Lädt...</h2>
       </div>
     );
   }

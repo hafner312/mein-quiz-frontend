@@ -1,5 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
+import { MemoryRouter } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import UserStats from "./user-stats";
 import * as leaderboardService from "../services/leaderboard-service";
@@ -14,9 +15,11 @@ const renderWithAuth = (user = null) => {
   };
 
   return render(
-    <AuthContext.Provider value={authValue}>
-      <UserStats />
-    </AuthContext.Provider>
+    <MemoryRouter>
+      <AuthContext.Provider value={authValue}>
+        <UserStats />
+      </AuthContext.Provider>
+    </MemoryRouter>
   );
 };
 

@@ -13,6 +13,9 @@ import Forbidden from "./pages/Forbidden";
 import ProtectedRoute from "./components/protected-route";
 import LeaderboardPage from "./pages/Leaderboard";
 import UserStatsPage from "./pages/UserStatsPage";
+import Datenschutz from "./pages/Datenschutz";
+import AGB from "./pages/AGB";
+import Kontakt from "./pages/Kontakt";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="regeln" element={<Rules />} />
         <Route path="blabli" element={<Impressum />} />
+        <Route path="datenschutz" element={<Datenschutz />} />
+        <Route path="agb" element={<AGB />} />
+        <Route path="kontakt" element={<Kontakt />} />
         <Route path="leaderboard" element={<LeaderboardPage />} />
         <Route path="stats" element={<UserStatsPage />} />
         <Route path="forbidden" element={<Forbidden />} />

@@ -77,11 +77,41 @@ button:focus-visible {
 
 /* Stil für den Footer */
 .layout-footer {
-  padding: 5px 0;
+  padding: 16px 0;
   text-align: center;
   background-color: #f0f0f0;
   border-top: 1px solid #727272;
   color: #333;
+}
+
+.layout-footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.layout-footer-brand p {
+  margin: 4px 0;
+}
+
+.layout-footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.layout-footer-links a {
+  color: #214a7a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.layout-footer-links a:hover {
+  text-decoration: underline;
 }
 
 .category-buttons {
@@ -280,22 +310,22 @@ button:focus-visible {
 
 .tab-button {
   padding: 10px 20px;
-  background: #f0f0f0;
-  border: 2px solid #ddd;
+  background: #f5f7fb;
+  color: #1f2a3a;
+  border: 2px solid #cfd6e4;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
   transition: all 0.3s;
 }
 
-.tab-button:hover {
-  background: #e0e0e0;
-}
 
 .tab-button--active {
-  background: #324f6f;
-  color: white;
-  border-color: #324f6f;
+  background: #214a7a;
+  color: #ffffff;
+  border-color: #214a7a;
+  box-shadow: 0 6px 14px rgba(33, 74, 122, 0.25);
+  transform: translateY(-1px);
 }
 
 .leaderboard-table {
@@ -342,6 +372,124 @@ button:focus-visible {
   font-weight: bold;
   color: #28a745;
   font-size: 18px;
+}
+
+/* ==========================================
+   RULES PAGE
+   ========================================== */
+
+.rules-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.rules-lead {
+  font-size: 1.05rem;
+  color: #555;
+  margin: 10px 0 30px 0;
+}
+
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.rule-card {
+  background: #ffffff;
+  border: 1px solid #e4e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.rule-card h3 {
+  margin: 0 0 10px 0;
+  color: #1f2a3a;
+}
+
+.rule-card p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   HOME PAGE
+   ========================================== */
+
+.home-page {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.home-hero {
+  background: #ffffff;
+  border: 1px solid #e4e8f0;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.home-lead {
+  color: #4b5563;
+  font-size: 1.05rem;
+  margin: 12px 0 24px 0;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid transparent;
+}
+
+.home-button--primary {
+  background: #214a7a;
+  color: #ffffff;
+  border-color: #214a7a;
+}
+
+.home-button--secondary {
+  background: #f5f7fb;
+  color: #1f2a3a;
+  border-color: #cfd6e4;
+}
+
+.home-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.home-card {
+  background: #ffffff;
+  border: 1px solid #e4e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.home-card h3 {
+  margin: 0 0 8px 0;
+  color: #1f2a3a;
+}
+
+.home-card p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
 }
 
 /* ==========================================
