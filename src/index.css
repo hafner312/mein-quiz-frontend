@@ -51,20 +51,50 @@ button:focus-visible {
 
 /* Eigene Stile für die Navigation im Layout-Header */
 .layout-header-nav {
-  margin-bottom: 15px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: nowrap;
+}
+
+.nav-center {
+  justify-content: center;
+  min-width: 0;
+}
+
+.nav-left,
+.nav-right {
+  white-space: nowrap;
 }
 
 .layout-header-nav a {
-  /* Stil für die Link-Komponenten */
-  color: #6661fb; /* React-Blau, oder behalte 'white' wenn es besser passt */
-  margin-right: 15px;
+  color: #2b3440;
   text-decoration: none;
-  font-size: 1rem; /* Etwas kleiner als die h1 im Header */
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .layout-header-nav a:hover {
-  color: #2f2d75; /* Beispiel Hover-Farbe */
-  text-decoration: underline;
+  color: #111827;
+  border-color: #cbd5e1;
+}
+
+.layout-header-nav .active {
+  color: #111827;
+  border-color: #94a3b8;
 }
 
 /* Stil für den Hauptinhaltsbereich */
@@ -77,54 +107,92 @@ button:focus-visible {
 
 /* Stil für den Footer */
 .layout-footer {
-  padding: 16px 0;
-  text-align: center;
-  background-color: #f0f0f0;
-  border-top: 1px solid #727272;
-  color: #333;
+  padding: 20px 0;
+  background-color: #f8fafc;
+  border-top: 1px solid #e6e9ef;
+  box-shadow: 0 -8px 16px rgba(15, 23, 42, 0.04);
+  color: #374151;
 }
 
 .layout-footer-content {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 16px;
 }
 
 .layout-footer-brand p {
-  margin: 4px 0;
+  margin: 2px 0;
+  font-size: 0.9rem;
+  color: #4b5563;
 }
 
 .layout-footer-links {
   display: flex;
-  gap: 16px;
+  gap: 18px;
 }
 
 .layout-footer-links a {
-  color: #214a7a;
+  color: #475569;
   text-decoration: none;
   font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
 }
 
 .layout-footer-links a:hover {
-  text-decoration: underline;
+  color: #1f2937;
 }
 
 .App-header {
+  border-bottom: 1px solid #e6e9ef;
+  background: #f8fafc;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
+}
+
+.header-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  padding-bottom: 0.5rem;
+  gap: 2rem;
 }
 
 .App-logo {
   width: 72px;
   height: auto;
+}
+
+.user-pill {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #e9eef5;
+  color: #3b4a5a;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.user-pill--admin {
+  background: #f3e8e8;
+  color: #8b3a3a;
+}
+
+.nav-button {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: transparent;
+  color: #475569;
+}
+
+.nav-button:hover {
+  background: #f1f5f9;
 }
 
 .category-buttons {

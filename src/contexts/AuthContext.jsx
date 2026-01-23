@@ -14,23 +14,14 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    clearAuth();
     checkAuth();
   }, []);
 
   const checkAuth = () => {
-    const storedToken = localStorage.getItem("authToken");
-    const storedUserData = getUserData();
-
-    if (storedToken && storedUserData) {
-      setToken(storedToken);
-      setUser(storedUserData);
-      setIsAuthenticated(true);
-    } else {
-      setToken(null);
-      setUser(null);
-      setIsAuthenticated(false);
-    }
-
+    setToken(null);
+    setUser(null);
+    setIsAuthenticated(false);
     setIsLoading(false);
   };
 
@@ -59,6 +50,10 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     setIsAuthenticated(false);
     window.location.href = "/";
+  };
+
+  const clearAuth = () => {
+    apiLogout();
   };
 
   const value = {

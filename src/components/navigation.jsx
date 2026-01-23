@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 const Navigation = () => {
@@ -10,49 +10,39 @@ const Navigation = () => {
 
   return (
     <nav className="layout-header-nav">
-      <Link to="/">Home</Link>
-      {isAuthenticated && <Link to="/notes/new">Neue Notiz</Link>}
-      <Link to="/notes">Meine Notizen</Link>
-      <Link to="/subjects">Fächer-Übersicht</Link>
-      <Link to="/regeln">Regeln</Link>
+      <div className="nav-left">
+        <NavLink to="/" end>
+          Home
+        </NavLink>
+      </div>
 
-      {isAuthenticated ? (
-        <>
-          <Link to="/stats">Meine Stats</Link>
-          {user?.role === "ADMIN" && <Link to="/admin">Admin</Link>}
-          <span
-            style={{
-              marginLeft: "20px",
-              padding: "5px 12px",
-              background: user.role === "ADMIN" ? "#dc3545" : "#007bff",
-              color: "white",
-              borderRadius: "4px",
-              fontSize: "14px",
-              fontWeight: "500",
-            }}
-          >
-            {user.username} ({user.role})
-          </span>
-          <button
-            onClick={handleLogout}
-            style={{
-              marginLeft: "10px",
-              padding: "5px 12px",
-              background: "#6c757d",
-              color: "white",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-              fontSize: "14px",
-              fontWeight: "500",
-            }}
-          >
-            Logout
-          </button>
-        </>
-      ) : (
-        <Link to="/login">Login</Link>
-      )}
+      <div className="nav-center">
+        {isAuthenticated && (
+          <NavLink to="/notes/new">
+            Neue Notiz
+          </NavLink>
+        )}
+        <NavLink to="/notes">Meine Notizen</NavLink>
+        <NavLink to="/subjects">Fächer-Übersicht</NavLink>
+        <NavLink to="/regeln">Regeln</NavLink>
+        <NavLink to="/stats">Meine Stats</NavLink>
+      </div>
+
+      <div className="nav-right">
+        {isAuthenticated ? (
+          <>
+            {user?.role === "ADMIN" && <NavLink to="/admin">Admin</NavLink>}
+            <span className="user-pill">
+              {user.username} ({user.role})
+            </span>
+            <button onClick={handleLogout} className="nav-button">
+              Logout
+            </button>
+          </>
+        ) : (
+          <NavLink to="/login">Login</NavLink>
+        )}
+      </div>
     </nav>
   );
 };

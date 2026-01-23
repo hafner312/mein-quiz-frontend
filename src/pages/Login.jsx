@@ -9,6 +9,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const { login } = useAuth();
   const registrationSuccess = location.state?.registered;
+  const redirectTo = location.state?.from || "/";
 
   const handleLogin = async (loginData) => {
     setError("");
@@ -17,7 +18,7 @@ const Login = () => {
       console.log("Login wird gestartet...");
       await login(loginData.usernameOrEmail, loginData.password);
       console.log("Login erfolgreich");
-      navigate("/notes");
+      navigate(redirectTo);
     } catch (err) {
       console.error("Login fehlgeschlagen:", err);
       setError(
@@ -67,35 +68,6 @@ const Login = () => {
           <Link to="/register">Jetzt registrieren</Link>
         </div>
 
-        <div
-          style={{
-            marginTop: "20px",
-            padding: "15px",
-            backgroundColor: "#e7f3ff",
-            borderRadius: "4px",
-            fontSize: "14px",
-          }}
-        >
-          <strong>Test-Accounts:</strong>
-          <br />
-          <br />
-          <strong>Admin:</strong>
-          <br />
-          Username: admin
-          <br />
-          Email: admin@notizen.ch
-          <br />
-          Passwort: admin123
-          <br />
-          <br />
-          <strong>Normaler User:</strong>
-          <br />
-          Username: player1
-          <br />
-          Email: player1@notizen.ch
-          <br />
-          Passwort: player123
-        </div>
       </div>
     </div>
   );

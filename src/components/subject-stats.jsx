@@ -33,8 +33,8 @@ const SubjectStats = () => {
   if (!isAuthenticated) {
     return (
       <div className="leaderboard-container">
-        <h2>Login erforderlich</h2>
-        <p>Bitte logge dich ein, um deine Fächerstatistiken zu sehen.</p>
+        <h1>Fächer-Übersicht</h1>
+        <p>Aktuell sind keine Fächerstatistiken verfügbar.</p>
       </div>
     );
   }

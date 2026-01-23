@@ -7,9 +7,14 @@ const Layout = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <Navigation />
-        <img src="/logo.svg" className="App-logo" alt="Lern- und Schulnotizen Logo" />
-        <h1>Willkommen bei Lern- und Schulnotizen!</h1>
+        <div className="header-bar">
+          <img
+            src="/logo.png"
+            className="App-logo"
+            alt="Lern- und Schulnotizen Logo"
+          />
+          <Navigation />
+        </div>
       </header>
 
       <main className="layout-main-content">
@@ -18,8 +23,7 @@ const Layout = () => {
       <footer className="layout-footer">
         <div className="layout-footer-content">
           <div className="layout-footer-brand">
-            <p>© {currentYear} Lern- und Schulnotizen. All rights reserved.</p>
-            <p>Made with ❤️ by WISS</p>
+            <p>© {currentYear} Lern- und Schulnotizen · Bildungsplattform</p>
           </div>
           <div className="layout-footer-links">
             <Link to="/blabli">Impressum</Link>

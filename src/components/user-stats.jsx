@@ -39,11 +39,8 @@ const UserStats = () => {
     return (
       <div className="user-stats-container">
         <div className="no-auth">
-          <h2>Login erforderlich</h2>
-          <p>Du musst eingeloggt sein, um deine Statistiken zu sehen.</p>
-          <Link to="/login" className="button">
-            Zum Login
-          </Link>
+          <h2>Meine Statistiken</h2>
+          <p>Aktuell sind keine Statistiken verfügbar.</p>
         </div>
       </div>
     );

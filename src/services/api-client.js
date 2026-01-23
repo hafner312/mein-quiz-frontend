@@ -12,7 +12,7 @@ const apiClient = axios.create({
 
 apiClient.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("authToken");
+    const token = sessionStorage.getItem("authToken");
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -35,7 +35,7 @@ apiClient.interceptors.response.use(
 
       if (status === 401) {
         console.log("Token ungueltig - Logout erforderlich");
-        localStorage.removeItem("authToken");
+        sessionStorage.removeItem("authToken");
         window.location.href = "/login";
       }
 

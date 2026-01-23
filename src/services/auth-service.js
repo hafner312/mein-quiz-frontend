@@ -12,10 +12,10 @@ export const login = async (usernameOrEmail, password) => {
     const { token, userId, id, username, email, role } = response.data;
     const resolvedUserId = userId ?? id;
 
-    localStorage.setItem("authToken", token);
+    sessionStorage.setItem("authToken", token);
 
     const userData = { id: resolvedUserId, username, email, role };
-    localStorage.setItem("userData", JSON.stringify(userData));
+    sessionStorage.setItem("userData", JSON.stringify(userData));
 
     console.log("Login erfolgreich - Token gespeichert");
 
@@ -30,21 +30,21 @@ export const login = async (usernameOrEmail, password) => {
 
 export const logout = () => {
   console.log("Logout - Token wird geloescht");
-  localStorage.removeItem("authToken");
-  localStorage.removeItem("userData");
+  sessionStorage.removeItem("authToken");
+  sessionStorage.removeItem("userData");
 };
 
 export const isAuthenticated = () => {
-  const token = localStorage.getItem("authToken");
+  const token = sessionStorage.getItem("authToken");
   return !!token;
 };
 
 export const getToken = () => {
-  return localStorage.getItem("authToken");
+  return sessionStorage.getItem("authToken");
 };
 
 export const getUserData = () => {
-  const userDataString = localStorage.getItem("userData");
+  const userDataString = sessionStorage.getItem("userData");
   if (userDataString) {
     return JSON.parse(userDataString);
   }
