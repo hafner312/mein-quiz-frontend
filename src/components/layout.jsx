@@ -9,7 +9,7 @@ const Layout = () => {
       <header className="App-header">
         <Navigation />
         <img src="/vite.svg" className="App-logo" alt="logo" />
-        <h1>Willkommen beim WISS-Quiz!</h1>
+        <h1>Willkommen bei Lern- und Schulnotizen!</h1>
       </header>
 
       <main className="layout-main-content">
@@ -18,7 +18,7 @@ const Layout = () => {
       <footer className="layout-footer">
         <div className="layout-footer-content">
           <div className="layout-footer-brand">
-            <p>© {currentYear} WISS-Quiz. All rights reserved.</p>
+            <p>© {currentYear} Lern- und Schulnotizen. All rights reserved.</p>
             <p>Made with ❤️ by WISS</p>
           </div>
           <div className="layout-footer-links">

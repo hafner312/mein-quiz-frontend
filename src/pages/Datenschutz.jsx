@@ -3,13 +3,13 @@ const Datenschutz = () => {
     <div className="page-container">
       <h1>Datenschutz</h1>
       <p>
-        Wir verarbeiten personenbezogene Daten nur im Rahmen des Quizbetriebs.
-        Dazu gehoeren Login-Daten, Spielergebnisse und Statistiken.
+        Wir verarbeiten personenbezogene Daten nur im Rahmen des Notizbetriebs.
+        Dazu gehoeren Login-Daten und Notiz-Statistiken.
       </p>
       <h2>Zweck der Verarbeitung</h2>
       <p>
-        Die Daten werden genutzt, um das Quiz bereitzustellen, Ergebnisse
-        anzuzeigen und Statistiken zu erstellen.
+        Die Daten werden genutzt, um die Notizen bereitzustellen, Inhalte zu
+        speichern und Statistiken zu erstellen.
       </p>
       <h2>Weitergabe</h2>
       <p>
@@ -18,7 +18,7 @@ const Datenschutz = () => {
       </p>
       <h2>Kontakt</h2>
       <p>
-        Bei Fragen zum Datenschutz wende dich an: kontakt@wiss-quiz.example
+        Bei Fragen zum Datenschutz wende dich an: kontakt@wiss-notizen.example
       </p>
     </div>
   );

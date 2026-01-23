@@ -8,14 +8,14 @@ const Greeting = ({ name }) => {
     return (
       <div>
         <h1>Hello, Player 456!</h1>
-        <p>Welcome back to the game!</p>
+        <p>Welcome back to your notes!</p>
       </div>
     );
   }
   return (
     <div>
       <h1>Hello, {name}!</h1>
-      <p>Welcome back to the game!</p>
+      <p>Welcome back to your notes!</p>
     </div>
   );
 };

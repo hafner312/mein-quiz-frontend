@@ -17,7 +17,7 @@ const Login = () => {
       console.log("Login wird gestartet...");
       await login(loginData.usernameOrEmail, loginData.password);
       console.log("Login erfolgreich");
-      navigate("/quiz");
+      navigate("/notes");
     } catch (err) {
       console.error("Login fehlgeschlagen:", err);
       setError(
@@ -83,7 +83,7 @@ const Login = () => {
           <br />
           Username: admin
           <br />
-          Email: admin@quiz.com
+          Email: admin@notizen.ch
           <br />
           Passwort: admin123
           <br />
@@ -92,7 +92,7 @@ const Login = () => {
           <br />
           Username: player1
           <br />
-          Email: player1@quiz.com
+          Email: player1@notizen.ch
           <br />
           Passwort: player123
         </div>

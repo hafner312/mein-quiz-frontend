@@ -4,39 +4,38 @@ const Home = () => {
   return (
     <div className="home-page">
       <div className="home-hero">
-        <h1>Willkommen beim WISS-Quiz</h1>
+        <h1>Willkommen bei Lern- und Schulnotizen</h1>
         <p className="home-lead">
-          Teste dein Wissen, sammle Punkte und klettere im Leaderboard nach
-          oben. Starte jetzt dein nächstes Quiz.
+          Halte deine Lerninhalte strukturiert fest, plane Prüfungen und teile
+          Wissen im Team. Erstelle jetzt deine erste Notiz.
         </p>
         <div className="home-actions">
-          <Link className="home-button home-button--primary" to="/quiz">
-            Quiz starten
+          <Link className="home-button home-button--primary" to="/notes">
+            Notizen öffnen
           </Link>
-          <Link className="home-button home-button--secondary" to="/leaderboard">
-            Leaderboard ansehen
+          <Link className="home-button home-button--secondary" to="/subjects">
+            Fächer-Übersicht
           </Link>
         </div>
       </div>
 
       <div className="home-grid">
         <div className="home-card">
-          <h3>Mehrere Kategorien</h3>
+          <h3>Mehrere Fächer</h3>
           <p>
-            Wähle aus Sport, Filme oder Geographie und finde deine Stärken.
+            Organisiere Notizen nach Mathematik, Sprachen oder Informatik.
           </p>
         </div>
         <div className="home-card">
           <h3>Persönliche Statistiken</h3>
           <p>
-            Sieh dir deine Spiele, Punkte und den Durchschnitt in den Stats an.
+            Behalte den Überblick über deine Notizen und Lernfortschritte.
           </p>
         </div>
         <div className="home-card">
-          <h3>Fair und schnell</h3>
+          <h3>Einfach und klar</h3>
           <p>
-            Kurze Runden, klare Regeln und sofortiges Feedback nach jeder
-            Frage.
+            Erstelle, bearbeite und finde deine Notizen in wenigen Klicks.
           </p>
         </div>
       </div>

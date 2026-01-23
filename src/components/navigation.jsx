@@ -11,9 +11,8 @@ const Navigation = () => {
   return (
     <nav className="layout-header-nav">
       <Link to="/">Home</Link>
-      <Link to="/quiz">Quiz</Link>
-      <Link to="/leaderboard">Leaderboard</Link>
-      <Link to="/admin">Fragen verwalten</Link>
+      <Link to="/notes">Meine Notizen</Link>
+      <Link to="/subjects">Fächer-Übersicht</Link>
       <Link to="/regeln">Regeln</Link>
 
       {isAuthenticated ? (

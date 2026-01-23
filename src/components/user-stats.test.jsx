@@ -3,9 +3,9 @@ import { describe, expect, it, vi } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import UserStats from "./user-stats";
-import * as leaderboardService from "../services/leaderboard-service";
+import * as statsService from "../services/stats-service";
 
-vi.mock("../services/leaderboard-service");
+vi.mock("../services/stats-service");
 
 const renderWithAuth = (user = null) => {
   const authValue = {
@@ -32,16 +32,16 @@ describe("UserStats Component", () => {
   });
 
   it("sollte User-Statistiken anzeigen wenn eingeloggt", async () => {
-    const mockUser = { id: 1, username: "player1", role: "PLAYER" };
+    const mockUser = { id: 1, username: "player1", role: "USER" };
     const mockStats = {
       userId: 1,
       username: "player1",
-      gamesPlayed: 15,
-      totalScore: 1200,
-      averageScore: 80.0,
+      totalNotes: 15,
+      subjectsUsed: 4,
+      lastUpdatedAt: "2026-01-23T10:30:00",
     };
 
-    leaderboardService.getUserStats.mockResolvedValue(mockStats);
+    statsService.getUserStats.mockResolvedValue(mockStats);
 
     renderWithAuth(mockUser);
 
@@ -50,21 +50,20 @@ describe("UserStats Component", () => {
     });
 
     expect(screen.getByText("15")).toBeInTheDocument();
-    expect(screen.getByText("1200")).toBeInTheDocument();
-    expect(screen.getByText("80.0")).toBeInTheDocument();
+    expect(screen.getByText("4")).toBeInTheDocument();
   });
 
-  it("sollte 0 anzeigen wenn keine Spiele gespielt", async () => {
-    const mockUser = { id: 2, username: "newplayer", role: "PLAYER" };
+  it("sollte 0 anzeigen wenn keine Notizen vorhanden sind", async () => {
+    const mockUser = { id: 2, username: "newplayer", role: "USER" };
     const mockStats = {
       userId: 2,
       username: "newplayer",
-      gamesPlayed: 0,
-      totalScore: 0,
-      averageScore: 0.0,
+      totalNotes: 0,
+      subjectsUsed: 0,
+      lastUpdatedAt: null,
     };
 
-    leaderboardService.getUserStats.mockResolvedValue(mockStats);
+    statsService.getUserStats.mockResolvedValue(mockStats);
 
     renderWithAuth(mockUser);
 
@@ -73,7 +72,6 @@ describe("UserStats Component", () => {
     });
 
     expect(screen.getAllByText("0")).toHaveLength(2);
-    expect(screen.getByText("0.0")).toBeInTheDocument();
-    expect(screen.getByText(/Noch keine Spiele/i)).toBeInTheDocument();
+    expect(screen.getByText(/Noch keine Notizen/i)).toBeInTheDocument();
   });
 });

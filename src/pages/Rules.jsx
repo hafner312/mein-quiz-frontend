@@ -1,38 +1,38 @@
 const Rules = () => {
   return (
     <div className="rules-page">
-      <h1>Spielregeln</h1>
+      <h1>Nutzungsregeln</h1>
       <p className="rules-lead">
-        Willkommen beim WISS-Quiz. Diese Regeln sorgen für ein faires und
-        klares Spielerlebnis.
+        Willkommen bei Lern- und Schulnotizen. Diese Regeln sorgen für ein
+        klares und respektvolles Miteinander.
       </p>
       <div className="rules-grid">
         <div className="rule-card">
           <h3>Zugang und Start</h3>
           <p>
-            Du musst eingeloggt sein, um ein Quiz zu starten. Wähle eine
-            Kategorie und schon geht es los.
+            Du musst eingeloggt sein, um Notizen zu erstellen oder zu
+            bearbeiten. Deine Notizen sind deinem Account zugeordnet.
           </p>
         </div>
         <div className="rule-card">
-          <h3>Antworten und Punkte</h3>
+          <h3>Inhalte und Struktur</h3>
           <p>
-            Pro Frage gibt es genau eine richtige Antwort. Jede richtige
-            Antwort bringt einen Punkt, falsche Antworten bringen keine Punkte.
+            Verwende klare Titel, passende Fächer und kurze Absätze, damit
+            deine Notizen später schnell gefunden werden.
           </p>
         </div>
         <div className="rule-card">
-          <h3>Ergebnis und Neustart</h3>
+          <h3>Aktualität</h3>
           <p>
-            Am Ende siehst du dein Ergebnis und kannst ein neues Spiel starten,
-            um deinen Score zu verbessern.
+            Halte Notizen aktuell. Ergänze neue Erkenntnisse und markiere
+            Wichtigkeit, damit dein Lernstand sichtbar bleibt.
           </p>
         </div>
         <div className="rule-card">
           <h3>Fairplay</h3>
           <p>
-            Bitte spiele fair, nutze keine Hilfe von außen und respektiere
-            andere. Mehrfach-Accounts sind nicht erlaubt.
+            Respektiere andere Nutzer:innen. Keine beleidigenden Inhalte oder
+            Mehrfach-Accounts.
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { getUserStats } from "../services/leaderboard-service";
+import { getUserStats } from "../services/stats-service";
 
 const UserStats = () => {
   const { user, isAuthenticated } = useAuth();
@@ -77,44 +77,46 @@ const UserStats = () => {
       <div className="stats-header">
         <h1>Meine Statistiken</h1>
         <p className="stats-username">
-          Spieler: <strong>{stats?.username || user?.username}</strong>
+          Nutzer: <strong>{stats?.username || user?.username}</strong>
         </p>
       </div>
 
       <div className="stats-grid">
         <div className="stat-card stat-card--games">
-          <div className="stat-icon">GP</div>
+          <div className="stat-icon">N</div>
           <div className="stat-content">
-            <h3 className="stat-label">Spiele gespielt</h3>
-            <p className="stat-value">{stats?.gamesPlayed || 0}</p>
+            <h3 className="stat-label">Notizen gesamt</h3>
+            <p className="stat-value">{stats?.totalNotes || 0}</p>
           </div>
         </div>
 
         <div className="stat-card stat-card--score">
-          <div className="stat-icon">TS</div>
+          <div className="stat-icon">F</div>
           <div className="stat-content">
-            <h3 className="stat-label">Gesamtpunkte</h3>
-            <p className="stat-value">{stats?.totalScore || 0}</p>
+            <h3 className="stat-label">Fächer genutzt</h3>
+            <p className="stat-value">{stats?.subjectsUsed || 0}</p>
           </div>
         </div>
 
         <div className="stat-card stat-card--average">
-          <div className="stat-icon">AVG</div>
+          <div className="stat-icon">⏱️</div>
           <div className="stat-content">
-            <h3 className="stat-label">Durchschnitt</h3>
+            <h3 className="stat-label">Letzte Aktualisierung</h3>
             <p className="stat-value">
-              {stats?.averageScore ? stats.averageScore.toFixed(1) : "0.0"}
+              {stats?.lastUpdatedAt
+                ? new Date(stats.lastUpdatedAt).toLocaleDateString("de-CH")
+                : "-"}
             </p>
           </div>
         </div>
       </div>
 
-      {stats?.gamesPlayed === 0 && (
+      {stats?.totalNotes === 0 && (
         <div className="no-games">
-          <h3>Noch keine Spiele gespielt</h3>
-          <p>Spiele dein erstes Quiz, um deine Statistiken zu sehen!</p>
-          <Link to="/quiz" className="button">
-            Quiz starten
+          <h3>Noch keine Notizen erstellt</h3>
+          <p>Erstelle deine erste Notiz, um Statistiken zu sehen.</p>
+          <Link to="/notes" className="button">
+            Notiz erstellen
           </Link>
         </div>
       )}

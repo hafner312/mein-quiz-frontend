@@ -4,11 +4,11 @@ const Impressum = () => {
       <h1>Impressum</h1>
       <p>
         Verantwortlich für den Inhalt dieser Seite ist das Projektteam
-        WISS-Quiz.
+        Lern- und Schulnotizen.
       </p>
       <h2>Kontakt</h2>
       <p>
-        WISS-Quiz Team
+        Lern- und Schulnotizen Team
         <br />
         Musterstraße 1
         <br />
@@ -17,15 +17,15 @@ const Impressum = () => {
         Schweiz
       </p>
       <p>
-        E-Mail: kontakt@wiss-quiz.example
+        E-Mail: kontakt@wiss-notizen.example
         <br />
         Telefon: +41 44 000 00 00
       </p>
       <h2>Vertretungsberechtigte Person</h2>
-      <p>Projektleitung WISS-Quiz</p>
+      <p>Projektleitung Lern- und Schulnotizen</p>
       <h2>Datenschutz</h2>
       <p>
-        Wir verarbeiten personenbezogene Daten nur im Rahmen des Quizbetriebs
+        Wir verarbeiten personenbezogene Daten nur im Rahmen des Notizbetriebs
         und geben keine Daten an Dritte weiter, sofern keine gesetzliche Pflicht
         besteht.
       </p>
