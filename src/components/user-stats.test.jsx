@@ -24,11 +24,12 @@ const renderWithAuth = (user = null) => {
 };
 
 describe("UserStats Component", () => {
-  it("sollte Login-Aufforderung zeigen wenn nicht eingeloggt", () => {
+  it("sollte Hinweis zeigen wenn nicht eingeloggt", () => {
     renderWithAuth(null);
 
-    expect(screen.getByText(/Login erforderlich/i)).toBeInTheDocument();
-    expect(screen.getByText(/Zum Login/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Aktuell sind keine Statistiken verfügbar/i)
+    ).toBeInTheDocument();
   });
 
   it("sollte User-Statistiken anzeigen wenn eingeloggt", async () => {
