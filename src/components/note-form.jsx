@@ -2,11 +2,26 @@ import { useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import Button from "./button";
 
-const NoteForm = ({ onNoteSubmit }) => {
+const DEFAULT_SUBJECTS = [
+  "Deutsch",
+  "Mathematik",
+  "Informatik",
+  "Geschichte",
+  "Biologie",
+  "Chemie",
+  "Physik",
+  "Geografie",
+  "Englisch",
+  "Wirtschaft",
+  "Recht",
+];
+
+const NoteForm = ({ onNoteSubmit, subjects = [] }) => {
   const { user } = useAuth();
 
   const [title, setTitle] = useState("");
   const [subject, setSubject] = useState("");
+  const [customSubject, setCustomSubject] = useState("");
   const [importance, setImportance] = useState("MEDIUM");
   const [content, setContent] = useState("");
 
@@ -66,6 +81,13 @@ const NoteForm = ({ onNoteSubmit }) => {
     setIsSubmitting(false);
   };
 
+  const mergedSubjects = Array.from(
+    new Set([
+      ...DEFAULT_SUBJECTS,
+      ...subjects.map((item) => item?.trim()).filter(Boolean),
+    ])
+  ).sort((a, b) => a.localeCompare(b));
+
   return (
     <form onSubmit={handleSubmit} className="question-form">
       <h2>Neue Notiz erstellen</h2>
@@ -86,11 +108,22 @@ const NoteForm = ({ onNoteSubmit }) => {
         <label htmlFor="subject">Fach *</label>
         <input
           id="subject"
+          list="subject-options"
           value={subject}
-          onChange={(e) => setSubject(e.target.value)}
-          placeholder="z.B. Biologie"
+          onChange={(e) => {
+            setSubject(e.target.value);
+            if (subjectError) setSubjectError("");
+          }}
+          onFocus={(e) => e.target.showPicker?.()}
+          onClick={(e) => e.target.showPicker?.()}
+          placeholder="Fach eingeben oder auswählen"
           className={`form-input ${subjectError ? "form-input--error" : ""}`}
         />
+        <datalist id="subject-options">
+          {mergedSubjects.map((item) => (
+            <option key={item} value={item} />
+          ))}
+        </datalist>
         {subjectError && <span className="error-message">{subjectError}</span>}
       </div>
 

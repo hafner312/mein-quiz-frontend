@@ -11,6 +11,7 @@ const Navigation = () => {
   return (
     <nav className="layout-header-nav">
       <Link to="/">Home</Link>
+      {isAuthenticated && <Link to="/notes/new">Neue Notiz</Link>}
       <Link to="/notes">Meine Notizen</Link>
       <Link to="/subjects">Fächer-Übersicht</Link>
       <Link to="/regeln">Regeln</Link>
@@ -18,6 +19,7 @@ const Navigation = () => {
       {isAuthenticated ? (
         <>
           <Link to="/stats">Meine Stats</Link>
+          {user?.role === "ADMIN" && <Link to="/admin">Admin</Link>}
           <span
             style={{
               marginLeft: "20px",

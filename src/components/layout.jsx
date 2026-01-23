@@ -8,7 +8,7 @@ const Layout = () => {
     <div className="App">
       <header className="App-header">
         <Navigation />
-        <img src="/vite.svg" className="App-logo" alt="logo" />
+        <img src="/logo.svg" className="App-logo" alt="Lern- und Schulnotizen Logo" />
         <h1>Willkommen bei Lern- und Schulnotizen!</h1>
       </header>
 

@@ -114,6 +114,19 @@ button:focus-visible {
   text-decoration: underline;
 }
 
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.App-logo {
+  width: 72px;
+  height: auto;
+}
+
 .category-buttons {
   display: flex;
   justify-content: center;
@@ -143,7 +156,7 @@ button:focus-visible {
    =========================================== */
 
 .question-manager {
-  max-width: 800px;
+  max-width: 920px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
@@ -158,9 +171,9 @@ button:focus-visible {
 .question-form {
   background: white;
   padding: 2rem;
-  border-radius: 2px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e1e5e9;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(18, 24, 38, 0.08);
+  border: 1px solid #e6e9ef;
 }
 
 /* Form Groups */
@@ -182,12 +195,167 @@ button:focus-visible {
   width: 100%;
   padding: 0.75rem;
   border: 2px solid #e1e5e9;
-  border-radius: 2px;
+  border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
   font-family: inherit;
   background: white;
   color: #333;
+}
+
+
+/* ===========================================
+   NOTES LIST STYLES
+   =========================================== */
+
+.notes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 1.5rem auto 0;
+  max-width: 760px;
+}
+
+.note-card {
+  background: #ffffff;
+  border: 1px solid #e6e9ef;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(18, 24, 38, 0.06);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  text-align: left;
+}
+
+
+.note-card + .note-card::before {
+  content: "";
+  position: absolute;
+  top: -0.75rem;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  background: #edf0f4;
+}
+
+.note-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.note-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1b1f24;
+  margin: 0;
+}
+
+.note-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.note-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1f2937;
+  background: #eef1f6;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+}
+
+.note-badge--muted {
+  color: #4b5563;
+  background: #f3f4f6;
+}
+
+.note-content {
+  color: #374151;
+  line-height: 1.65;
+  max-width: 66ch;
+  text-align: left;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+}
+
+.note-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.note-action {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.note-action--ghost {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.note-action--primary {
+  background: #e8f0ff;
+  color: #1d4ed8;
+  border-color: #d7e3ff;
+}
+
+.note-action--danger {
+  background: #fff1f2;
+  color: #b91c1c;
+  border-color: #ffe4e6;
+}
+
+.note-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.note-edit-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.admin-notes-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.admin-notes-filter label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.admin-notes-filter select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d7dbe2;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+@media (max-width: 720px) {
+  .note-card {
+    padding: 1.25rem;
+  }
+
+  .note-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 }
 
 .form-input:focus {

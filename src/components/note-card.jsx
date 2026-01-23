@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Button from "./button";
 
-const NoteCard = ({ note, onEdit, onDelete }) => {
+const NoteCard = ({ note, onEdit, onDelete, isHighlighted = false }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState("");
   const [editSubject, setEditSubject] = useState("");
@@ -52,10 +52,10 @@ const NoteCard = ({ note, onEdit, onDelete }) => {
   };
 
   return (
-    <div className="question-card">
+    <article className="note-card">
       {isEditing ? (
-        <div className="editing-form">
-          <h3>Notiz bearbeiten</h3>
+        <div className="note-edit-form">
+          <h3 className="note-edit-title">Notiz bearbeiten</h3>
 
           <div className="edit-field">
             <label>Titel:</label>
@@ -100,50 +100,50 @@ const NoteCard = ({ note, onEdit, onDelete }) => {
             />
           </div>
 
-          <div className="edit-actions">
+          <div className="note-actions">
             <Button
               text="✅ Speichern"
               onAnswerClick={saveChanges}
-              className="save-button"
+              className="note-action note-action--primary"
             />
             <Button
               text="❌ Abbrechen"
               onAnswerClick={cancelEditing}
-              className="cancel-button"
+              className="note-action note-action--ghost"
             />
           </div>
         </div>
       ) : (
         <>
-          <div className="question-header">
-            <h3>{note.title}</h3>
-            <div className="question-meta">
-              <span className="category-badge">{note.subject}</span>
-              <span className="difficulty-badge">{note.importance}</span>
+          <header className="note-header">
+            <h3 className="note-title">{note.title}</h3>
+            <div className="note-badges">
+              <span className="note-badge">{note.subject}</span>
+              <span className="note-badge note-badge--muted">
+                {note.importance}
+              </span>
             </div>
+          </header>
+
+          <div className="note-content">
+            {note.content}
           </div>
 
-          <div className="question-answers">
-            <div className="correct-answer">
-              <strong>📝 Inhalt:</strong> {note.content}
-            </div>
-          </div>
-
-          <div className="question-actions">
+          <div className="note-actions">
             <Button
               text="✏️ Bearbeiten"
               onAnswerClick={startEditing}
-              className="edit-button"
+              className="note-action note-action--ghost"
             />
             <Button
               text="🗑️ Löschen"
               onAnswerClick={handleDelete}
-              className="delete-button"
+              className="note-action note-action--danger"
             />
           </div>
         </>
       )}
-    </div>
+    </article>
   );
 };
 

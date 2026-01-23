@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Notes from "./pages/Notes";
+import CreateNote from "./pages/CreateNote";
 import Impressum from "./pages/Impressum";
 import Rules from "./pages/Rules";
 import PageNotFound from "./pages/PageNotFound";
@@ -16,6 +17,7 @@ import UserStatsPage from "./pages/UserStatsPage";
 import Datenschutz from "./pages/Datenschutz";
 import AGB from "./pages/AGB";
 import Kontakt from "./pages/Kontakt";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -38,6 +40,22 @@ function App() {
           element={
             <ProtectedRoute>
               <Notes />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="notes/new"
+          element={
+            <ProtectedRoute>
+              <CreateNote />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="admin"
+          element={
+            <ProtectedRoute requiredRole="ADMIN">
+              <Admin />
             </ProtectedRoute>
           }
         />
