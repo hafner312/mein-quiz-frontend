@@ -6,11 +6,8 @@ const Home = () => {
       <div className="home-hero">
         <h1>Willkommen bei Lern- und Schulnotizen</h1>
         <p className="home-lead">
-          Halte deine Lerninhalte strukturiert fest, plane Prüfungen und
-          behalte deine Notizen jederzeit im Blick. Sammle Zusammenfassungen,
-          Übungen und Lernziele an einem Ort, ordne sie nach Fächern und finde
-          alles in wenigen Sekunden wieder. So bleibt dein Lernalltag klar,
-          motivierend und leicht planbar. Erstelle jetzt deine erste Notiz.
+          Halte deine Lerninhalte strukturiert fest, plane Prüfungen und teile
+          Wissen im Team. Erstelle jetzt deine erste Notiz.
         </p>
         <div className="home-actions">
           <Link className="home-button home-button--primary" to="/notes">
